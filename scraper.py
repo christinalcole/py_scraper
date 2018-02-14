@@ -15,7 +15,7 @@ toy_name_list = soup.find_all(class_='p13n-sc-truncate p13n-sc-line-clamp-2')
 
 rank_array = []
 toy_array = []
-# print (rank)
+
 for rank in rank_list:
     rank_array.append(rank.text.strip())
 
@@ -23,9 +23,9 @@ for toy in toy_name_list:
     toy_array.append(toy.text.strip())
 
 
-print(rank_array + toy_array)
+result=zip(rank_array, toy_array)
+result_list=list(result)
 
-
-# toy_name = soup.find(class_='p13n-sc-truncate p13n-sc-line-clamp-2').text.strip()
-#
-# print (toy_name)
+for r_l in result_list:
+    for y in r_l:
+        print (y)
