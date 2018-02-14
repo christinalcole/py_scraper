@@ -10,10 +10,22 @@ soup = BeautifulSoup(page.text, 'html.parser')
 
 
 
-rank = soup.find('span', attrs={'class':'zg_rankNumber'}).text.strip()
+rank_list = soup.find_all('span', attrs={'class':'zg_rankNumber'})
+toy_name_list = soup.find_all(class_='p13n-sc-truncate p13n-sc-line-clamp-2')
 
-print (rank)
+rank_array = []
+toy_array = []
+# print (rank)
+for rank in rank_list:
+    rank_array.append(rank.text.strip())
 
-toy_name = soup.find(class_='p13n-sc-truncate p13n-sc-line-clamp-2').text.strip()
+for toy in toy_name_list:
+    toy_array.append(toy.text.strip())
 
-print (toy_name)
+
+print(rank_array + toy_array)
+
+
+# toy_name = soup.find(class_='p13n-sc-truncate p13n-sc-line-clamp-2').text.strip()
+#
+# print (toy_name)
